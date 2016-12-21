@@ -13,13 +13,17 @@ router.use(bodyParser.json());
 router.route('/')
 .get(Verify.verifyOrdinaryUser,Verify.verifyAdmin,   function (req, res, next) {
     User.find({}, function (err, user) {
-        if (err) throw err;
+        if (err) {
+			console.log('User must be autheticated to run this command');
+			return;
+		}
         res.json(user);
     });
 });
 
 
 router.post('/register', function(req, res) {
+	console.log('registration started');
     User.register(new User({ username : req.body.username }),
       req.body.password, function(err, user) {
         if (err) {
@@ -32,7 +36,8 @@ router.post('/register', function(req, res) {
 });
 
 router.post('/login', function(req, res, next) {
-  passport.authenticate('local', function(err, user, info) {
+	console.log('Login started');
+	passport.authenticate('local', function(err, user, info) {
     if (err) {
       return next(err);
     }

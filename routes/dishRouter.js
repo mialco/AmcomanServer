@@ -52,9 +52,14 @@ dishRouter.route('/')
 
 dishRouter.route('/:dishId')
 .get(function (req, res, next) {
-    Dishes.findById(req.params.dishId, function (err, dish) {
+    //Dishes.findById(req.params.dishId, function (err, dish) {
+    Dishes.find('{id: ' + req.params.dishId + '}', function (err, dish) {
         if (err) throw err;
-        res.json(dish);
+        try{
+			res.json(dish);
+		}catch(err) {
+			console.log('Error captured on get dish by id');
+		}
     });
 })
 
