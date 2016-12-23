@@ -9,6 +9,7 @@ var Verify = require('./verify');
 router.use(bodyParser.json());
 
 
+
 /* GET users listing. */
 router.route('/')
 .get(Verify.verifyOrdinaryUser,Verify.verifyAdmin,   function (req, res, next) {
@@ -24,8 +25,10 @@ router.route('/')
 
 router.post('/register', function(req, res) {
 	console.log('registration started');
-    User.register(new User({ username : req.body.username }),
-      req.body.password, function(err, user) {
+	console.log ('UserName: ' + req.body.username + ' is admin:  ' + req.body.registerAdmin);
+    User.register(new User({ username : req.body.username , admin: req.body.registerAdmin}),
+      req.body.password, function(err, user)
+	  {
         if (err) {
             return res.status(500).json({err: err});
         }
@@ -35,13 +38,25 @@ router.post('/register', function(req, res) {
     });
 });
 
+//		res.append('Access-Control-Allow-Origin','*');
+router.all ('/login', function (req,res,next){
+	console.log('Running users/login/ALL')
+	//res.append('Access-Control-Allow-Origin','*');
+	next();
+})
+
 router.post('/login', function(req, res, next) {
-	console.log('Login started');
+	console.log('Router.Post -->  Login started');
+	//res.append('Access-Control-Allow-Origin','*');
+	
 	passport.authenticate('local', function(err, user, info) {
-    if (err) {
+    console.log ('passport.post finished - user: '  + user + '  Info:    ' + info );
+	if (err) {
+		console.log('passport.post returned error');
       return next(err);
     }
     if (!user) {
+		console.log('passport.authenticate renurned null useer')
       return res.status(401).json({
         err: info
       });
@@ -57,7 +72,8 @@ router.post('/login', function(req, res, next) {
               res.status(200).json({
         status: 'Login successful!',
         success: true,
-        token: token
+        token: token,
+		admin: user.admin | false
       });
     });
   })(req,res,next);
