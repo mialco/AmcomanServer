@@ -30,6 +30,8 @@ var users = require('./routes/users');
 var admin = require('./routes/adminRouter');
 var dishes = require ('./routes/dishRouter');
 var orgs = require ('./routes/organizationRouter');
+var entities = require ('./routes/entityRouter');
+var articles = require ('./routes/articleRouter');
 var app = express();
 
 // view engine setup
@@ -59,7 +61,8 @@ app.use('/users', users);
 app.use('/admin', admin);
 app.use('/dishes',dishes);
 app.use('/orgs',orgs);
-app.use('/orgs/:orgId',orgs);
+app.use('/entities',entities);
+app.use('/articles',articles);
 
 
 // catch 404 and forward to error handler

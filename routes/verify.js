@@ -11,11 +11,11 @@ exports.getToken = function (user) {
 exports.verifyOrdinaryUser = function (req, res, next) {
     // check header or url parameters or post parameters for token
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
-console.log('verify regular user called 1');
-next(); // Short Circuit the  verification for testing purpose
+	console.log('verify regular user called 1');
+//next(); // Short Circuit the  verification for testing purpose
 
     // decode token
-if (token) {
+	if (token) {
         // verifies secret and checks exp
         jwt.verify(token, config.secretKey, function (err, decoded) {
             if (err) {
@@ -47,7 +47,7 @@ exports.verifyAdmin = function (req, res, next) {
                 err.status = 401;
                 return next(err);
             } else {
-                next(); // Shortcircuit the verification for testing porposes
+                //next(); // Shortcircuit the verification for testing porposes
                 // if everything is good, save to request for use in other routes
                 if (req.decoded._doc.admin){
                     console.log('req.decoded: ' + req.decoded._doc.admin )

@@ -66,6 +66,26 @@ npm install gulp-ng-annotate --save-dev
  
  gulp watch
  
+==========================================================================================
+Insert organization
+{
+  "_id": "585d9254c03a6a1eb091a079",
+  "organizationName": "secondtOrg222",
+  "contactName": "mikeo22222",
+  "contactEmail": "mikeo2@Secondtorg.com",
+  "contactPhone": "1112223",
+  "__v": 0
+}
+
+Update Organization
+{
+  "_id": "585d9254c03a6a1eb091a079",
+  "organizationName": "secondtOrg222",
+  "contactName": "mikeo22222",
+  "contactEmail": "mikeo2@Secondtorg.com",
+  "contactPhone": "1112223",
+}
+
 
 
  
