@@ -87,5 +87,177 @@ Update Organization
 }
 
 
+======================================================================================================
 
+Credentials for Blumix Mongo DB: 
+Credentials Name: amcusr1
+
+
+{
+  "db_type": "mongodb",
+  "name": "bmix_dal_yp_3ccc3ae9_424a_4ef1_b410_3a491c0fd3fe",
+  "uri_cli": "mongo --ssl --sslAllowInvalidCertificates sl-us-dal-9-portal.3.dblayer.com:15416/admin -u admin -p GPPEGEFYFPFGKLYK",
+  "ca_certificate_base64": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURkVENDQWwyZ0F3SUJBZ0lFViszaFZ6QU5CZ2txaGtpRzl3MEJBUTBGQURBOE1Ub3dPQVlEVlFRRERERnQKYVd0bGIwQnRhV0ZzWTI4dVkyOXRMVGRsTVdWak1XSXlNRE00TlRZNE5qTmtZVEV3Wm1Oa05UZzJaR05oTXpWaQpNQjRYRFRFMk1Ea3pNREF6TlRFMU1Wb1hEVE0yTURrek1EQXpNREF3TUZvd1BERTZNRGdHQTFVRUF3d3hiV2xyClpXOUFiV2xoYkdOdkxtTnZiUzAzWlRGbFl6RmlNakF6T0RVMk9EWXpaR0V4TUdaalpEVTRObVJqWVRNMVlqQ0MKQVNJd0RRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQkFMRFhJT0lRcFZKRTQ4bWo5ajhmYlRzQgpheXVYYXdBbnhrdkhuZE1IWldoUTVFaUlqbGlIeDNMSVNJdmQrLzJWdHJ0VDFQWEF3MHRyMzBEVEpvT09KVlZDCkplNGtsWE91WG5GSXRqUGprbEczbytyRmRZRldmdXIrcGdlYWFyODNVWDRjejd3cFgrRmJhTElmak83THlnQy8KQkluUWI0R3NiQXJqRGNWcWltUkxPOGh6T2FpQUppdFB0SkNKVzNCdGFHZytaNGpWZXA2aE11U1JrYmszYnRKZwo4YndTTDNCdytRc0xOYmdmTG9FTnVickxrNmR4bEJydTlnZWtGeDZSeStFT2Y2U0I1L1BmRThxK2tydjRST2YyCktBazN6R3dZcjdodm5vY1Y5NmVNNFo5TTkxS0xLaDlrMWo3c09IT0dTdjl6Y081cE1pamR6aW9UOW9IRFhqY0MKQXdFQUFhTi9NSDB3SFFZRFZSME9CQllFRkljQ0hSNm81M05aaVc5VklIVXo1bE1mRUlqNU1BNEdBMVVkRHdFQgovd1FFQXdJQ0JEQWRCZ05WSFNVRUZqQVVCZ2dyQmdFRkJRY0RBUVlJS3dZQkJRVUhBd0l3REFZRFZSMFRCQVV3CkF3RUIvekFmQmdOVkhTTUVHREFXZ0JTSEFoMGVxT2R6V1lsdlZTQjFNK1pUSHhDSStUQU5CZ2txaGtpRzl3MEIKQVEwRkFBT0NBUUVBRDQ1Mm9YVDhGUFhHa1RsVDhlalRva2o4UHM1OTVkMDN5QUw4QUZMZ21PWDA1K2pYMmgzUApneUhYUitzWVR5TFFSM0RuUTl1VU5uS0VzZDRiV3VWckZFRFI0ekF1aHVDcGxzOUJXQ1lRV29VT210NTZhaUpDCmJhTGVWNmFNTVF6T0JxYjFwcmt2SVIwbjhheXYzRjVrNjJWTjJlb2hpelFad3ZoM0xPZzFDNU5qRi90YjY0bXoKTlFXeWFSZFI3clJXRUZRVUY2Z0k0Zk42M3FxOUxLNnFxZ1NLMXRjaXdOa1I0UDhacnJWMHdMM1BTZU1wbEFKZwpZbW8rWUVDancvejFNZEhjSkZFQURUR0ZtWFVicXRwNTZmTytndGlBMCtOR2tyWjJ1cUM0ODhra1ZyM0pqSU1xCk5iUjAvL0VleXoweVh6cUROcEozS0lWSEU2dmdZTWVRYkE9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==",
+  "deployment_id": "57ede13f63a35500130005ec",
+  "uri": "mongodb://admin:GPPEGEFYFPFGKLYK@sl-us-dal-9-portal.3.dblayer.com:15416/admin?ssl=true"
+}
+
+-- Step. Download and install MongoDb from the Mongo Site
+-- Step  Run the following to connect to the Mongo Database from the command prompt
+
+mongo --ssl --sslAllowInvalidCertificates sl-us-dal-9-portal.3.dblayer.com:15416/admin -u admin -p GPPEGEFYFPFGKLYK
+
+> db.help()
+
+ // Creating tables from the mongo command prompt
  
+mongos> db.createCollection('user',{ "id": Number,"userName": String,"email": String, "password":String})
+
+mongos> db.user.insert({ "id": 1,"userName": 'mikeo',"email":'mikeo@mialco.com', "password":'mikepassword'})
+
+====
+Start local Mongpdb server 
+Go to mongodb folder
+> mongod --dbpath data
+// Where data is a folder where Mongodb keeps its data
+
+Start server with:
+> npm start
+
+
+
+
+
+===========================================================================================
+
+to start ionic simulator 
+
+ionic serve
+
+or 
+
+# Start with MAC and Android emulators
+ionic serve --lab  
+
+
+====
+
+Deploy to android and run emulators
+
+ext, add the Android platform to your app by typing the following at the prompt:
+
+
+1
+     ionic platform add android
+Then, build the app for the Android platform as follows:
+
+
+1
+     ionic build android
+Finally, you can deploy the app to the Android emulator by typing the following at the prompt:
+
+
+1
+     ionic emulate android
+This will start your default Android emulator and deploy the app to the emulator, and run the app.
+If you happen to have an Android device and are willing to use it for development, then configure the device to allow development on the device. The exact procedure depends on the manufacturer and model of the device. Check for these instructions either within your device manual, or online.
+Connect your Android device to the computer. Then, at the command prompt, type the following:
+
+
+1
+     ionic run android
+This should deploy the app to the device and open the app on the device.
+Conclusions
+
+In this exercise, you learnt to configure, build and deploy your app to an iOS emulator.
+
+
+
+
+===========================================
+
+Install Cordova for Android
+http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html
+
+
+
+======================================================
+
+Autorization 
+login returns the  following code
+
+{
+  "status": "Login successful!",
+  "success": true,
+  "token": "
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsiYWRtaW4iOiJpbml0IiwiX192IjoiaW5pdCIsInVzZXJuYW1lIjoiaW5pdCIsImhhc2giOiJpbml0Iiwic2FsdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsImFkbWluIjp0cnVlLCJ1c2VybmFtZSI6dHJ1ZSwiaGFzaCI6dHJ1ZSwic2FsdCI6dHJ1ZSwiX2lkIjp0cnVlfSwibW9kaWZ5Ijp7fSwicmVxdWlyZSI6e319LCJzdGF0ZU5hbWVzIjpbInJlcXVpcmUiLCJtb2RpZnkiLCJpbml0IiwiZGVmYXVsdCIsImlnbm9yZSJdfSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImFkbWluIjpmYWxzZSwiX192IjowLCJ1c2VybmFtZSI6Im1pa2VvMSIsImhhc2giOiI3OTlmZGQ3MjhkNDNhN2UwMzlmMGFmNDU3YTEzYmM3NGMzMjk0ZWEyODNhNjFiMDQ3M2IwZGIwMDAyMTI1YThjZGVkOTMwN2FmOTNhZTg1NDNjYTgyMTExMWExOWQyOWQ3MGY5MmNhNzk1NGZhOGNlY2I4NGMzODFjOTY0Njc4MTgwZmJhODY2ZDM3Y2VmNmJkMzU0ODA1ZjBmOTljNzg0ZTVlZmQyMzg0YmQwMDBjOTAwNmUxMTljNWU3Mjc4ZjJkYzA1ODg3N2Y5MDZhMmU3MzA4ZGY3OGUzNzc3MjFiMmUzZGVkNGY2YjMwMmNiMTk2MzUxZTc2OWY0YTMyYjFlNGU3YjBmOTM3YjVkMzQ2ZjU5ZjA5MjExMmYyNWEzODMzOWY2ZTI0NzlkMTZhOGRiMWNhODA2NzhiM2I5YzFiNzMxOGI3OWM3ZTM3ZWMxZTEyOWEwOTJmNTkyNmUyZTk5OWUxYmRiOGQzNzNmNmRlYzdiYTdmMzEyOGU1ZWM2NjNiYTQxMWRkOTMwYzE5N2I0NGNkMjhhM2U2N2IyZDY5ZjljNjg5Nzg5YjQ3MGE0ZTk0N2NkNTQwOTg4YjM1Nzg3ZjdlOWQyMjVhNjU1MmM0MWI2OGEwMDExMzFiOGRiOGQ2NTJjZjUwYjUyZDU4ZDM2ZmQ4NTRlMjljZGI0NDE4OGMwMDlmNjVlZTBmZGI4ZDE5ZGVlYThlMjQxNzlkZjQ5NGU4MWZkY2RkM2EwN2YzNjNjNzNmNTJlYmIwMmM3NTUxMTVjZTE0ZWQyY2JjNTMxZTI1N2FlYjM5ZGIxMTk4ZmE4YTcxYTA4Y2NmM2ZhYmVlYTdiYmExNDNhNzlkMDU3NTg5MDdhMDQxOTdlZjVmYTczN2EwMTNmMzViNzQ1MWQ4Yjk1ODgzOGI4NWMxY2I3NmUxMjI2MDkxNjcwZmQ4Yzk4ZjA2MTRiZTE5MzQ1NDI3ZWRiZDRhMDJhNTRkOTM0NWJhNmQwMjczYmI1ZjY0Y2U5MjdkMGQzYWY4NTNkMDM1MGQ3NjU4MmM3ODkzYTZkZmFhMDEzOTg5YzZkZTMyMzkzMDg4NjNmMWQzMDM0MTU0ZDU5MjI2YTc2YmNlYmFhNjI5ZjE5YWUyNjUyZjMwZjcwZDllNmZlZGI0YjBlMTBhZDcwZWFiOWE0ZTIxODZmMzJmODk1M2Y4Njg5ODJjM2Q2MmY5OTZmM2ZmMDIyNzI3MTNlNDUxZTQ2YmY0N2NmZGQ4YTUwNDA5ZTUzZDM3OGUxODVmZTZkNjQyNzhhYmE4YTc4NTBjZTMwMzBmZGU0NzBhZTY3YmIzMTU1YzcxNmRiYTBiYTdhZjVkMmZiNTNhZThiMWI3ODY3YWZmOGEyIiwic2FsdCI6IjlkZjc0MzcyNGUzNmY5MjEzOTFiMmY2MDE1YTAyNjQ2ZDcwMjhjMjJhNjdjODgyNWQ4M2U2ZTE0OTU3MDVmNDciLCJfaWQiOiI1ODQ4YWZmMzJjMjUwMzNkYjQ0NGQ5ODUifSwiX3ByZXMiOnsiJF9fb3JpZ2luYWxfc2F2ZSI6W251bGwsbnVsbCxudWxsXSwiJF9fb3JpZ2luYWxfdmFsaWRhdGUiOltudWxsXSwiJF9fb3JpZ2luYWxfcmVtb3ZlIjpbbnVsbF19LCJfcG9zdHMiOnsiJF9fb3JpZ2luYWxfc2F2ZSI6W10sIiRfX29yaWdpbmFsX3ZhbGlkYXRlIjpbXSwiJF9fb3JpZ2luYWxfcmVtb3ZlIjpbXX0sImlhdCI6MTQ4MTE1ODY4NywiZXhwIjoxNDg0NzU4Njg3fQ.pjNhrTb0NJBUJlTQJHv9gAu-SHxyODME1G-burQJ-wc
+  
+}
+
+The header we are using is x-access-token
+
+
+the token is to be stored further in the local storage of the browser or phone
+
+==================================================================================
+
+Prepare Grunt
+
+npm install -g grunt-cli
+
+npm install grunt --save-dev
+
+npm install grunt-contrib-jshint --save-dev
+npm install jshint-stylish --save-dev
+npm install time-grunt --save-dev
+npm install jit-grunt --save-dev
+
+npm install grunt-contrib-copy --save-dev
+npm install grunt-contrib-clean --save-dev
+
+
+npm install grunt-contrib-concat --save-dev
+npm install grunt-contrib-cssmin --save-dev
+npm install grunt-contrib-uglify --save-dev
+npm install grunt-filerev --save-dev
+npm install grunt-usemin --save-dev
+
+
+npm install grunt-contrib-watch --save-dev
+npm install grunt-contrib-connect --save-dev
+
+grunt serve
+
+=================================================================================================================================
+
+Deployment to Bluemix
+
+Download and Install cf-cli-installer
+At the command prompt login to cf
+
+cf login -a https://api.ng.bluemix.net -u mikeo@mialco.com
+
+cf help
+
+Get the status of the application
+cf apps 
+
+// Push the amcoman application from the local server
+
+cf push Amcoman -p "C:\Data\Training\Coursera\Amcoman"
+
+Check the logs:
+cf logs --recent
+
+Access the website and API
+
+https://amcoman.mybluemix.net
+https://amcoman.mybluemix.net/index.html#/admin/articles
+https://amcoman.mybluemix.net/users/
+https://amcoman.mybluemix.net/articles
+ 
+ 
+ ==============================
+ Bluemix token
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsiYWRtaW4iOiJpbml0IiwiX192IjoiaW5pdCIsInVzZXJuYW1lIjoiaW5pdCIsImhhc2giOiJpbml0Iiwic2FsdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsImFkbWluIjp0cnVlLCJ1c2VybmFtZSI6dHJ1ZSwiaGFzaCI6dHJ1ZSwic2FsdCI6dHJ1ZSwiX2lkIjp0cnVlfSwibW9kaWZ5Ijp7fSwicmVxdWlyZSI6e319LCJzdGF0ZU5hbWVzIjpbInJlcXVpcmUiLCJtb2RpZnkiLCJpbml0IiwiZGVmYXVsdCIsImlnbm9yZSJdfSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7ImFkbWluIjp0cnVlLCJfX3YiOjAsInVzZXJuYW1lIjoibWlrZW8xIiwiaGFzaCI6IjQxZTBlYjM0MDk0MjkwNGUzYjVhYmY1NjkzMjgyNmFjY2Q0ZjM5ZmRjMmQ5OTE3ZDlmZTM0YTdmMTMyYmRlOWQ3MzhhM2QyZTgzNjEwNGE4ZDVjNjMyNTVlZTJiMmM1OTJmMDU2MzY4MzUyMTc4MDAzYjgyZWMwNmY3ZWUyNmZkNmI4MzJiZjllOWMyODhiYzhkNzkyNTViOTBhZDA0YzczMTQ2MjZlZThjM2U1MzRiZTBjMGI3YTExMDhmN2YxZmU1OWIzMWNhN2EzYzdlNThmZjQ1ZDhhNmRiYjNjM2ZkMzA3MmNlYjMwY2E4NGUxYjlkZGNiOWU2YWE0OGMxMDIxOTU5NzNjYWU4NmRmZGQ1ZGMyZWU5YjBiNGIxZmMzOTdhODY0YzJmMGNjOTI1ZWZjZGFiMDU1ZmUzY2FmZDI1MmJiMDAxZWYxNjk4YTcwNTYwMjcwNTg0NTQ5NDAxOWJkNDI4ZGY2NDMxOTc3ZTM5NWQwN2YzNDIxYTVjM2MyZjQ4ZmRiOTY5NjIyZGQ2YjY3ZGMzM2NmMDg4YWMyMjU1MmVlYWI4ZWM0ZTMxYmMxNGQ2NTA1MGEwOWI2NjY4MWZiMDk3NmJkZDVjNjJlYjhkN2JjMzRiM2YyMTBjYjAxNjYwMmE0ODA5ZGZmNTRkZGFmZWQ0OTk5YjVkNmE5NTEyYjQ1ZGU0MTZjMjhlMTZiODRkZDI2OTYyODNkZjhlZjZmZjU3OThjMWI3ZWRiZTNlMmM4NTI4MmRjYjIwMDEwMWE3MmQ3OTAyYTA5NGI3MWMwMzhjOTFjNmRkZmI3MGM5ZDM3ZjQyNTAxMTY1NWIyZGE1ZjMwM2ZhYWVlYzBhODM4ZGE4YTVkNGU4MmY4ZjE0NjQ1MmNlYzQ1YmQ2NTczOGI1MjMyOWM5ODc5YTQ2MWIyNjlhZTU4ZmVkZmI0NWFmMDllNzI5YzFiNWU1OTRmYjU1MmE1YjZhZjExNzY3NDhhNWNiZTllNmZmNzFhNjZhNDM2NGRhYTVhNTVhNDFlNTAzNWQ1ZmUzYjQ4ODZlYTVhNzdhN2VjZDY0OTYwNDZlNzA0NDYzMzA1OWZkNTQwZjVjNDZjZjVmNTA3NjEwZWI0YjgyMGQ3NzU4NDFlNDQ5MDMwMDgyMDZjODk5ZDE5Y2RlNWE5N2Q4MzJjODZjYTc0ZmI1M2VmNjE0MTA5YmVkYTk0OTc2NmFiZTJlMDcxZTIwMDg1OTVjOTA5NmU4OGNmYWY0MmRiNTk4ZTVjZTc2YzZmYTc0NTkzYzNhZGMwODc2Y2U2MmZlMjAyNjBmMmZjZjM5M2YwYTRjMmM3OWZiMzU5Zjc4Y2ViYmJlYWNiZjJkNDQwYzE0ODYwNDU5MzQiLCJzYWx0IjoiYzhhZjI2YWFhNGU0YmRkNTMzYWZmNzMwN2EzMjhkOTIwN2U0YWY3M2ExYzYwZTgxMWI5ZWQzMmI5OTFmNGVlZCIsIl9pZCI6IjU4NDhiYTJkNTM2YTExMjlkOGYxNzYwYiJ9LCJfcHJlcyI6eyIkX19vcmlnaW5hbF9zYXZlIjpbbnVsbCxudWxsLG51bGxdLCIkX19vcmlnaW5hbF92YWxpZGF0ZSI6W251bGxdLCIkX19vcmlnaW5hbF9yZW1vdmUiOltudWxsXX0sIl9wb3N0cyI6eyIkX19vcmlnaW5hbF9zYXZlIjpbXSwiJF9fb3JpZ2luYWxfdmFsaWRhdGUiOltdLCIkX19vcmlnaW5hbF9yZW1vdmUiOltdfSwiaWF0IjoxNDgzMzk1MzI4LCJleHAiOjE0ODY5OTUzMjh9.Jk_Y8JbHJ29mp7Fb60AXSVXD7OL7W_VgzPxCgN29XjQ
+

@@ -1,18 +1,73 @@
 
     <div class="container">
+		<div class="row" ng-show="showProcessMessage">
+			<div class="col-xl-12 process-message" >
+				{{processMessage}}
+			</div>
+		</div>
         <div class="row">
             <div class="col-xs-12">
                <ul class="breadcrumb">
                    <li><a href="index.html">Home</a></li>
-                   <li class="active">Menu</li>
+                   <li >Admin</li>
+                   <li class="active">Organizations</li>
                </ul>
             </div>
             <div class="col-xs-12">
-               <h3>Menu</h3>
+               <h3>Organization</h3>
                <hr>
             </div>
         </div>
-        <div class="row row-content">
+		 <div class="row">
+			  <table class="table table-striped">
+				<thead>
+				  <tr>
+					<th>Organization Name</th>
+					<th>Contact Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr ng-repeat="org in orgs">
+					<td>{{org.organizationName}}</td>
+					<td>{{org.contactName}}</td>
+					<td>{{org.contactEmail}}</td>
+					<td>{{org.contactPhone}}</td>
+				  </tr>
+				</tbody>
+			  </table>
+		 </div>
+		<div row>
+			<div col="col-xs-12 col-md-6">
+				<input type="button" class="btn btn-warning" value="Add new organization" ng-click="showAddNewForm(true)" ng-show="! addNewFormIsVisible" >
+			</div>
+			<div class="col-xs-12 col-md-6" ng-show="addNewFormIsVisible">
+				<form ng-submit="addNewOrg()">
+					<div class="form-group">
+						<label class="sr-only" for="username">Organization name </label>
+						<input type="text" class="form-control input-sm" id="orgname" placeholder="Organization Name" ng-model="newOrg.organizationName">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="username">Contact Name </label>
+						<input type="text" class="form-control input-sm" id="contactname" placeholder="Contact Name" ng-model="newOrg.contactName">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="username">Contact Email </label>
+						<input type="text" class="form-control input-sm" id="contactemail" placeholder="Contact Email" ng-model="newOrg.contactEmail">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="username">Contact Phone </label>
+						<input type="text" class="form-control input-sm" id="contactemail" placeholder="Contact Phone" ng-model="newOrg.contactPhone">
+					</div>
+					<button type="submit" class="btn btn-info btn-sm">Save</button>
+					<button type="button" class="btn btn-default btn-sm" ng-click=cancelAddNew()>Cancel</button> &nbsp; &nbsp;
+					<a ng-click=cancelAddNew()>Click here to register</a>
+				</form>
+			</div>
+		</div>
+			
+<!--         <div class="row row-content">
             <div class="col-xs-12" ng-if="!showMenu">
                 <h3>{{message}}</h3>
             </div>
@@ -73,5 +128,5 @@
             </div>
             </div>
         </div>
-
+ -->
     </div>

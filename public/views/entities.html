@@ -4,15 +4,68 @@
             <div class="col-xs-12">
                <ul class="breadcrumb">
                    <li><a href="index.html">Home</a></li>
-                   <li class="active">Menu</li>
+                   <li >Admin</li>
+                   <li class="active">Entities</li>
                </ul>
             </div>
             <div class="col-xs-12">
-               <h3>Menu</h3>
+               <h3>Entities</h3>
                <hr>
             </div>
         </div>
-        <div class="row row-content">
+		<div class="row" ng-show="showProcessMessage">
+			<div class="col-xl-12 process-message" >
+				{{processMessage}}
+			</div>
+		</div>		
+		 <div class="row">
+			  <table class="table table-striped">
+				<thead>
+				  <tr>
+					<th>Entity Name</th>
+					<th>Entity Url</th>
+					<th>Entity Description</th>
+					<th></th>
+					<th></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr ng-repeat="ent in ents">
+					<td>{{ent.name}}</td>
+					<td>{{ent.url}}</td>
+					<td>{{ent.description}}</td>
+					<td><a href="{{ent._id}}">Edit</a>  </td>
+					<td><button  ng-click="deleteEntity(ent._id)">Delete</button></td>
+				  </tr>
+				</tbody>
+			  </table>
+		 </div>
+		<div row>
+			<div col="col-xs-12 col-md-6">
+				<input type="button" class="btn btn-warning" value="Add new entity" ng-click="showAddNewForm(true)" ng-show="! addNewFormIsVisible" >
+			</div>
+			<div class="col-xs-12 col-md-6" ng-show="addNewFormIsVisible">
+				<form ng-submit="addNewEntity()">
+					<div class="form-group">
+						<label class="sr-only" for="entname">Entity name </label>
+						<input type="text" class="form-control input-sm" id="entname" placeholder="Entity Name" ng-model="newEnt.name">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="enturl">Contact Name </label>
+						<input type="text" class="form-control input-sm" id="enturl" placeholder="Entity Url" ng-model="newEnt.url">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="entDesc">Contact Email </label>
+						<input type="text" class="form-control input-sm" id="entDesc" placeholder="Contact Email" ng-model="newEnt.description">
+					</div>
+					<button type="submit" class="btn btn-info btn-sm">Save</button>
+					<button type="button" class="btn btn-default btn-sm" ng-click=cancelAddNew()>Cancel</button> &nbsp; &nbsp;
+					<a ng-click=cancelAddNew()>Click here to register</a>
+				</form>
+			</div>
+		</div>
+			
+<!--         <div class="row row-content">
             <div class="col-xs-12" ng-if="!showMenu">
                 <h3>{{message}}</h3>
             </div>
@@ -73,5 +126,5 @@
             </div>
             </div>
         </div>
-
+ -->
     </div>

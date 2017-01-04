@@ -1,0 +1,103 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="index.html">Home</a></li>
+                   <li >Admin</li>
+                   <li class="active">Articles</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Articles</h3>
+               <hr>
+            </div>
+        </div>
+		<div class="row" ng-show="showProcessMessage">
+			<div class="col-xl-12 process-message" >
+				{{processMessage}}
+			</div>
+		</div>		
+		 <div class="row">
+			  <table class="table table-striped">
+				<thead>
+				  <tr>
+					<th>Article Name</th>
+					<th>Link</th>
+					<th>Article Description</th>
+					<th>Article Long Description</th>
+					<th>Is Active</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr ng-repeat="art in arts ">
+					<td>
+						<div ng-show="!art.edit">{{art.name}}</div>
+						<div ng-show="art.edit"><input ng-model="art.name" type="text"></div>
+					</td>
+					<td>
+						<div ng-show="!art.edit">{{art.link}}</div>
+						<div ng-show="art.edit"><input ng-model="art.link" type="text"></div>
+					</td>
+					<td>
+						<div ng-show="!art.edit">{{art.description}}</div>
+						<div ng-show="art.edit"><input ng-model="art.description" type="text"></div>
+					</td>
+					<td>
+						<div ng-show="!art.edit">{{art.longDescription}}</div>
+						<div ng-show="art.edit"><input ng-model="art.longDescription" type="text"></div>
+					</td>
+					<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="art.isActive" ng-disabled="!art.edit">
+							</label>
+						</div>
+					</td>
+					<td>
+						<div ng-show="!art.edit"><button ng-Click="editArticle(art._id,art.lineId)">Edit</button>  </div>
+						<div ng-show="art.edit"><button ng-Click="saveEditedArticle(art._id,art.lineId)">Save</button>  </div>
+					</td>
+					<td>
+						<div ng-show="!art.edit"><button  ng-click="deleteArticle(art._id)">Delete</button></div>
+						<div ng-show="art.edit"><button  ng-click="cancelEditArticle(art.lineId)">Cancel</button></div>
+					</td>
+				  </tr>
+				</tbody>
+			  </table>
+		 </div>
+		<div row>
+			<div col="col-xs-12 col-md-6">
+				<input type="button" class="btn btn-warning" value="Add new article" ng-click="showAddNewForm(true)" ng-show="! addNewFormIsVisible" >
+			</div>
+			<div class="col-xs-12 col-md-6" ng-show="addNewFormIsVisible">
+				<form ng-submit="addNewArticle()">
+					<div class="form-group">
+						<label class="sr-only" for="artname">Article name </label>
+						<input type="text" class="form-control input-sm" id="artname" placeholder="Article Name" ng-model="newArt.name">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="artlink">Link </label>
+						<input type="text" class="form-control input-sm" id="artlink" placeholder="Article link" ng-model="newArt.link">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="artdesc">Description </label>
+						<input type="text" class="form-control input-sm" id="artdesc" placeholder="Description" ng-model="newArt.description">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="artLongDesc">Long Description </label>
+						<input type="text" class="form-control input-sm" id="artLongDesc" placeholder="Long Description" ng-model="newArt.longDescription">
+					</div>
+					<div class="form-group">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="newArt.isActive" > Active
+							</label>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-info btn-sm">Save</button>
+					<button type="button" class="btn btn-default btn-sm" ng-click=cancelAddNew()>Cancel</button> &nbsp; &nbsp;					
+				</form>
+			</div>
+		</div>
+    </div>
