@@ -10,6 +10,5 @@ var Entities = new Schema({
 });
 
 
-Entities.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('Entities', Entities);

@@ -13,6 +13,5 @@ var Articles = new Schema({
 	});
 
 
-Articles.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('Articles', Articles);

@@ -53,14 +53,6 @@ articleRouter.route('/')
     });
 })
 
-//.delete(Verify.verifyOrdinaryUser, function (req, res, next) {
-// .delete(function (req, res, next) {
-    // Articles.remove({}, function (err, resp) {
-        // if (err) next (err);
-        // res.json(resp);
-    // });
-// });
-
 articleRouter.route('/:artId')
 .get(Verify.verifyOrdinaryUser,Verify.verifyAdmin,function (req, res, next) {
 	console.log('Requesting one article: ID=  ' + req.params.artId );

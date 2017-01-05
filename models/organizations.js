@@ -8,9 +8,10 @@ var Organizations = new Schema({
     contactName: String,
     contactEmail: String,
     contactPhone :String
+	,
+	entities : [{type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Entities' }]
 });
 
-
-Organizations.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('Organizations', Organizations);

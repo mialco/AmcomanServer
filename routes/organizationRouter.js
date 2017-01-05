@@ -17,7 +17,8 @@ orgRouter.route('/')
     // });
 // })
 .get(Verify.verifyOrdinaryUser,Verify.verifyAdmin,function (req, res, next) {    
-    Orgs.find({}, function (err, org) {
+    console.log('POpulated entities');
+	Orgs.find().populate('entities').exec( function (err, org) {
         if (err) next(err);
 		console.log('getting Organizations');
 		//res.append('Access-Control-Allow-Origin','*');
@@ -34,23 +35,21 @@ orgRouter.route('/')
 .post(Verify.verifyOrdinaryUser,Verify.verifyAdmin,function (req, res, next) {
     Orgs.create(req.body, function (err, org) {
         if (err)  next(err);
-        console.log('Organization created!');
-        var id = org._id;
 
-        res.writeHead(200, {
-            'Content-Type': 'text/plain'
-        });
-        res.end('Added the organization with id: ' + id);
+        if (org) {
+            console.log('Organization created!');
+//            var id = org._id;
+
+            //res.writeHead(200, {
+            //    'Content-Type': 'text/plain'
+            //});
+            res.json(org)
+            //res.end('Added the organization with id: ' + id);
+        } else {
+            //res.end('Failed tp add new Organization ');
+        }
     });
 })
-
-//.delete(Verify.verifyOrdinaryUser, function (req, res, next) {
-// .delete(function (req, res, next) {
-    // Orgs.remove({}, function (err, resp) {
-        // if (err) next (err);
-        // res.json(resp);
-    // });
-// });
 
 orgRouter.route('/:orgId')
 .get(Verify.verifyOrdinaryUser,Verify.verifyAdmin, function (req, res, next) {
@@ -78,9 +77,13 @@ orgRouter.route('/:orgId')
 })
 
 .delete(Verify.verifyOrdinaryUser,Verify.verifyAdmin, function (req, res, next) {
-    Orgs.findByIdAndRemove(req.params.orgId, function (err, resp) { 
+    console.log('Starting delete organization id = ' + req.params.orgId);
+	Orgs.findByIdAndRemove(req.params.orgId, function (err, resp) { 
 	if (err) next( err);
+	else{
+		console.log('Deleted organization id = ' + req.params.orgId);
         res.json(resp);
+	}
     });
 });
 
