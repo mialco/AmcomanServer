@@ -39,10 +39,7 @@ entityRouter.route('/')
             if (typeof (ent) !== 'undefined') {
                 var id = ent._id;
                 console.log('Entity created!');
-                res.writeHead(200, {
-                    'Content-Type': 'text/plain'
-                });
-                res.end('Added the entity with id: ' + id);
+                res.json(ent);
             } else {
                 res.status(500).send('Failed to create new Entity');
             }
@@ -53,17 +50,9 @@ entityRouter.route('/')
     });
 })
 
-//.delete(Verify.verifyOrdinaryUser, function (req, res, next) {
-// .delete(function (req, res, next) {
-// Entities.remove({}, function (err, resp) {
-// if (err) next (err);
-// res.json(resp);
-// });
-// });
-
 entityRouter.route('/:entId')
 .get(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
-    console.log('Requesting one emtity: ID=  ' + req.params.entId);
+    console.log('Requesting one entity: ID=  ' + req.params.entId);
     Entities.findById(req.params.entId, function (err, ent) {
         if (err) next(err);
         try {
@@ -77,12 +66,10 @@ entityRouter.route('/:entId')
 .put(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
     console.log('PUT has been invoked for ent id: ' + req.params.entId);
     Entities.findByIdAndUpdate(req.params.entId, {
-        $set: req.body
-    }, {
-        new: true
-    }, function (err, ent) {
-        if (err) next(err);
-        res.json(ent);
+        $set: req.body},{
+        new: true }, function (err, ent) {
+            if (err) next(err);
+            res.json(ent);
     });
 })
 

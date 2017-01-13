@@ -1,132 +1,167 @@
 
-    <div class="container">
-		<div class="row" ng-show="showProcessMessage">
-			<div class="col-xl-12 process-message" >
-				{{processMessage}}
-			</div>
-		</div>
-        <div class="row">
-            <div class="col-xs-12">
-               <ul class="breadcrumb">
-                   <li><a href="index.html">Home</a></li>
-                   <li >Admin</li>
-                   <li class="active">Organizations</li>
-               </ul>
-            </div>
-            <div class="col-xs-12">
-               <h3>Organization</h3>
-               <hr>
-            </div>
+<div class="container">
+    <div class="row" ng-show="showProcessMessage">
+        <div class="col-xl-12 process-message">
+            {{processMessage}}
         </div>
-		 <div class="row">
-			  <table class="table table-striped">
-				<thead>
-				  <tr>
-					<th>Organization Name</th>
-					<th>Contact Name</th>
-					<th>Email</th>
-					<th>Phone</th>
-				  </tr>
-				</thead>
-				<tbody>
-				  <tr ng-repeat="org in orgs">
-					<td>{{org.organizationName}}</td>
-					<td>{{org.contactName}}</td>
-					<td>{{org.contactEmail}}</td>
-					<td>{{org.contactPhone}}</td>
-				  </tr>
-				</tbody>
-			  </table>
-		 </div>
-		<div row>
-			<div col="col-xs-12 col-md-6">
-				<input type="button" class="btn btn-warning" value="Add new organization" ng-click="showAddNewForm(true)" ng-show="! addNewFormIsVisible" >
-			</div>
-			<div class="col-xs-12 col-md-6" ng-show="addNewFormIsVisible">
-				<form ng-submit="addNewOrg()">
-					<div class="form-group">
-						<label class="sr-only" for="username">Organization name </label>
-						<input type="text" class="form-control input-sm" id="orgname" placeholder="Organization Name" ng-model="newOrg.organizationName">
-					</div>
-					<div class="form-group">
-						<label class="sr-only" for="username">Contact Name </label>
-						<input type="text" class="form-control input-sm" id="contactname" placeholder="Contact Name" ng-model="newOrg.contactName">
-					</div>
-					<div class="form-group">
-						<label class="sr-only" for="username">Contact Email </label>
-						<input type="text" class="form-control input-sm" id="contactemail" placeholder="Contact Email" ng-model="newOrg.contactEmail">
-					</div>
-					<div class="form-group">
-						<label class="sr-only" for="username">Contact Phone </label>
-						<input type="text" class="form-control input-sm" id="contactemail" placeholder="Contact Phone" ng-model="newOrg.contactPhone">
-					</div>
-					<button type="submit" class="btn btn-info btn-sm">Save</button>
-					<button type="button" class="btn btn-default btn-sm" ng-click=cancelAddNew()>Cancel</button> &nbsp; &nbsp;
-					<a ng-click=cancelAddNew()>Click here to register</a>
-				</form>
-			</div>
-		</div>
-			
-<!--         <div class="row row-content">
-            <div class="col-xs-12" ng-if="!showMenu">
-                <h3>{{message}}</h3>
-            </div>
-            <div class="col-xs-12" ng-if="showMenu">
-                 <button ng-click="toggleDetails()" class="btn btn-xs btn-primary pull-right"
-                    type="button">
-                    {{showDetails ? 'Hide Details':'Show Details'}}
-                </button>
-                 <button ng-click="toggleFavorites()" class="btn btn-xs btn-primary pull-right"
-                    type="button">
-                    {{showFavorites ? 'Hide Favorite Button':'Show Favorite Button'}}
-                </button>
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation"
-                    ng-class="{active:isSelected(1)}">
-                    <a ng-click="select(1)"
-                     aria-controls="all menu"
-                    role="tab">The Menu</a></li>
-                    <li role="presentation"
-                    ng-class="{active:isSelected(2)}">
-                    <a ng-click="select(2)"
-                    aria-controls="appetizers"
-                     role="tab">Appetizers</a></li>
-                    <li role="presentation"
-                    ng-class="{active:isSelected(3)}">
-                    <a ng-click="select(3)"
-                     aria-controls="mains"
-                     role="tab">Mains</a></li>
-                    <li role="presentation"
-                    ng-class="{active:isSelected(4)}">
-                    <a  ng-click="select(4)"
-                     aria-controls="desserts"
-                     role="tab">Desserts</a></li>
-                </ul>
-             
-                <div class="tab-content">
-               <ul class="media-list tab-pane fade in active">
-                <li class="media" ng-repeat="dish in dishes | filter:filtText">
-                    <div class="media-left media-middle">
-                        <a ui-sref="app.dishdetails({id: dish._id})">
-                        <img class="media-object img-thumbnail"
-                        ng-src={{dish.image}} alt="Uthappizza">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <h2 class="media-heading">{{dish.name}}
-                        <span class="label label-danger label-xs">{{dish.label}}</span>
-                        <span class="badge">{{dish.price/100 | currency}}</span></h2>
-                        <p ng-show="showDetails">{{dish.description}}</p>
-                         <button  ng-show="showFavorites" ng-click="addToFavorites(dish._id)" class="btn btn-xs btn-default pull-right"
-                    type="button">
-                          <i class="fa fa-heart"></i>
-                        </button>
-                    </div>
-                </li>
-            </ul>
-
-            </div>
-            </div>
-        </div>
- -->
     </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Admin</li>
+                <li class="active">Organizations</li>
+            </ul>
+        </div>
+        <div class="col-xs-12">
+            <h3>Organization</h3>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Organization Name</th>
+                    <th>Contact Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Entities</>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="org in orgs">
+                    <td>
+                        <div ng-show="!org.edit"><a ui-sref="app.orgDetails({orgId:org._id})">{{org.organizationName}}</a></div>
+                        <div ng-show="org.edit"><input ng-model="org.organizationName" type="text"></div>
+                    </td>
+                    <td>
+                    <div ng-show="!org.edit">{{org.contactName}}</div>
+                        <div ng-show="org.edit"><input ng-model="org.contactName" type="text"></div>
+                    </td>
+                    <td><div ng-show="!org.edit">{{org.contactEmail}}</div>
+                        <div ng-show="org.edit"><input ng-model="org.contactEmail" type="text"></div>
+
+                    </td>
+                    <td><div ng-show="!org.edit">{{org.contactPhone}}</div>
+                        <div ng-show="org.edit"><input ng-model="org.contactPhone" type="text"></div>
+
+                    </td>
+                    <td>
+                        <div ng-show="!org.edit">
+                            <a ui-sref="app.orgDetails({orgId:org._id})" >Entities ({{org.entitiesCount}})</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div ng-show="!org.edit">
+                            <button class="btn btn-info btn-sm" ng-click="editOrg(org)">Edit</button>
+                        </div>
+                        <div ng-show="org.edit">
+                            <button class="btn btn-info btn-sm" ng-click="saveEditedOrg(org._id, org.lineId)">Save</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div ng-show="!org.edit"><button class="btn btn-info btn-sm" ng-click="deleteOrg(org._id)">Delete</button></div>
+                        <div ng-show="org.edit">
+                            <button class="btn btn-info btn-sm" ng-click="cancelEditOrg(org.lineId)">Cancel</button>
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div row>
+        <div col="col-xs-12 col-md-6">
+            <input type="button" class="btn btn-warning" value="Add new organization" ng-click="showAddNewForm(true)" ng-show="! addNewFormIsVisible">
+        </div>
+        <div class="col-xs-12 col-md-6" ng-show="addNewFormIsVisible">
+            <form ng-submit="addNewOrg()">
+                <div class="form-group">
+                    <label class="sr-only" for="orgname">Organization name </label>
+                    <input type="text" class="form-control input-sm" id="orgname" placeholder="Organization Name" ng-model="newOrg.organizationName">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="contactname">Contact Name </label>
+                    <input type="text" class="form-control input-sm" id="contactname" placeholder="Contact Name" ng-model="newOrg.contactName">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="contactemail">Contact Email </label>
+                    <input type="text" class="form-control input-sm" id="contactemail" placeholder="Contact Email" ng-model="newOrg.contactEmail">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="contactphone">Contact Phone </label>
+                    <input type="text" class="form-control input-sm" id="contactphone" placeholder="Contact Phone" ng-model="newOrg.contactPhone">
+                </div>
+                <button type="submit" class="btn btn-info btn-sm">Save</button>
+                <button type="button" class="btn btn-default btn-sm" ng-click=cancelAddNew()>Cancel</button> &nbsp; &nbsp;
+            </form>
+        </div>
+    </div>
+
+    <!--         <div class="row row-content">
+                <div class="col-xs-12" ng-if="!showMenu">
+                    <h3>{{message}}</h3>
+                </div>
+                <div class="col-xs-12" ng-if="showMenu">
+                     <button ng-click="toggleDetails()" class="btn btn-xs btn-primary pull-right"
+                        type="button">
+                        {{showDetails ? 'Hide Details':'Show Details'}}
+                    </button>
+                     <button ng-click="toggleFavorites()" class="btn btn-xs btn-primary pull-right"
+                        type="button">
+                        {{showFavorites ? 'Hide Favorite Button':'Show Favorite Button'}}
+                    </button>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation"
+                        ng-class="{active:isSelected(1)}">
+                        <a ng-click="select(1)"
+                         aria-controls="all menu"
+                        role="tab">The Menu</a></li>
+                        <li role="presentation"
+                        ng-class="{active:isSelected(2)}">
+                        <a ng-click="select(2)"
+                        aria-controls="appetizers"
+                         role="tab">Appetizers</a></li>
+                        <li role="presentation"
+                        ng-class="{active:isSelected(3)}">
+                        <a ng-click="select(3)"
+                         aria-controls="mains"
+                         role="tab">Mains</a></li>
+                        <li role="presentation"
+                        ng-class="{active:isSelected(4)}">
+                        <a  ng-click="select(4)"
+                         aria-controls="desserts"
+                         role="tab">Desserts</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                   <ul class="media-list tab-pane fade in active">
+                    <li class="media" ng-repeat="dish in dishes | filter:filtText">
+                        <div class="media-left media-middle">
+                            <a ui-sref="app.dishdetails({id: dish._id})">
+                            <img class="media-object img-thumbnail"
+                            ng-src={{dish.image}} alt="Uthappizza">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h2 class="media-heading">{{dish.name}}
+                            <span class="label label-danger label-xs">{{dish.label}}</span>
+                            <span class="badge">{{dish.price/100 | currency}}</span></h2>
+                            <p ng-show="showDetails">{{dish.description}}</p>
+                             <button  ng-show="showFavorites" ng-click="addToFavorites(dish._id)" class="btn btn-xs btn-default pull-right"
+                        type="button">
+                              <i class="fa fa-heart"></i>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+
+                </div>
+                </div>
+            </div>
+     -->
+</div>
