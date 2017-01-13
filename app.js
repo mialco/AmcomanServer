@@ -19,16 +19,10 @@ db.once('open', function () {
 });
 
 var routes = require('./routes/index');
-//var users = require('./routes/users');
-//var dishRouter = require('./routes/dishRouter');
-//var promoRouter = require('./routes/promoRouter');
-//var leaderRouter = require('./routes/leaderRouter');
-
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var admin = require('./routes/adminRouter');
-var dishes = require ('./routes/dishRouter');
 var orgs = require ('./routes/organizationRouter');
 var entities = require ('./routes/entityRouter');
 var articles = require ('./routes/articleRouter');
@@ -59,7 +53,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/admin', admin);
-app.use('/dishes',dishes);
 app.use('/orgs',orgs);
 app.use('/entities',entities);
 app.use('/articles',articles);
